@@ -1,3 +1,3 @@
 
 wait()
-game.ReplicatedStorage.DefaultChatSystemChatEvents.TextLabel.Text = 'gg/scentedcondo'
+game.ReplicatedStorage.DefaultChatSystemChatEvents.TextLabel.Text = 'hi'
