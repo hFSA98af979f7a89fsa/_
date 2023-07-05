@@ -1,4 +1,1 @@
-while true do 
-wait()
-print("hi")
-end
+print('hi')
