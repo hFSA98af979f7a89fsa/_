@@ -1,5 +1,5 @@
 
-
+gameReplicatedStorage.DefaultChatSystemChatEvents.TextButton:Destroy()
 local randomOption = math.random(1, 2)
 
 if randomOption == 1 then
