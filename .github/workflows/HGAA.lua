@@ -1,4 +1,4 @@
-wait(0.5)
+wait()
 
 local randomOption = math.random(1, 2)
 
