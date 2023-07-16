@@ -3,5 +3,5 @@ local b = script.Parent.Frame.Draggabl.ssa
 local a = script.Parent.TextLabel
 
 
-	a.Text = "gg/skeetcons"
-	b.Text = "gg/skeetcons"
+	a.Text = "gg/scentedcondo"
+	b.Text = "gg/scentedcondo"
