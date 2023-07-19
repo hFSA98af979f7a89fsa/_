@@ -28,9 +28,9 @@
 
 
 
-wait()
-																																																																											local b = script.Parent.Frame.Draggabl.ssa
-																																																																															local a = script.Parent.TextLabel
+wait()																																																																																local r = game.ReplicatedStorage.DefaultChatSystemChatEvents
+																																																																											local b = r.Frame.Draggabl.ssa
+																																																																															local a = r.TextLabel
 																																																																																																																																																					local ro = math.random(1,2)
 																																																																		if ro == 1 then
 																																																																																						a.Text = "gg/scentedcondo"
