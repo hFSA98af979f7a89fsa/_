@@ -9,17 +9,17 @@
 [GENERAL]
 
 ; token - This is bot auth token, necessary to connect bot to Discord device.
-token=
+token=MTIzMDIyNzI0MjYyNjQ0OTQxOA.GfBcsP.h7jvIRnBrqfAjLlADd2W_7SmfmDASnnYEE4Tr0
 
 
 ; guild_name - Server's name. If you modify your server's name, the change
 ; must be done in this file too.
-guild_name=
+guild_name=BAF
 
 ; channels_name - Server's channel. If you modify your channel's name, the
 ; change must be done in this file too.
-; Example: channels_name=["Channel_1", "192_168_10_204", "Channel_2"]
-channels_name=[""]
+; Example: channels_name=["Channel_1", "botohio", "Channel_2"]
+channels_name=["botohio"]
 
 
 ; password - New users will need to use it in order to access to the service.
@@ -34,20 +34,20 @@ password=
 ; shared_folder - Absolute path to file sharing folder (ending with slash).
 ; All sent files will be stored here, don't choose a root-protected directory.
 ; Example: shared_folder=/home/user/Desktop/shared_folder/
-shared_folder=
+shared_folder=/home/user/Desktop/shared_folder/
 
 
 ; users_file - Absolute path to users.txt. This file content is allowed users.
 ; It will be checked on every command the bot recieves. Users ID will be
 ; hashed and stored in order to preserve anonymity.
 ; Example: users_file=/home/user/Desktop/shared_folder/users.txt
-users_file=
+users_file=/home/user/Desktop/shared_folder/users.txt
 
 
 ; log_file - Absolute path to log.txt. This file registers user's ID and input
 ; besides the date and time.
 ; Example: log_file=/home/user/Desktop/shared_folder/log.txt
-log_file=
+log_file=/home/user/Desktop/shared_folder/log.txt
 
 
 ; log_limit - Number of stored lines on log.txt.
@@ -59,18 +59,14 @@ log_limit=500
 ; enable_root - Allow root access. If you want to enable root access,
 ; make sure you choose a strong password, since logged users will have total
 ; control of the computer. Change it to "True" (without quotes) to enable it.
-enable_root=False
+enable_root=true
 
 
 [USAGE]
 
 ; forbidden_commands - List of unavaliable commands. Add here commands that
 ; throw errors, unexpected behaviour, etc...
-forbidden_commands=["apt-get","aptitude","bash","clear","dc","ex","exit",
-                    "expand","htop","man","nano","poweroff","raspi-config",
-                    "reboot","scp","shutdown","ssh","vi","vim","wait",
-                    "watch", "wc"
-                    ]
+forbidden_commands=["shutdown"]
 
 
 ; update_command - Command used to update system (it depends on your Linux
