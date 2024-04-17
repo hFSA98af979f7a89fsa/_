@@ -28,7 +28,8 @@ LOG_LIMIT = None              # Max number of lines to register in log
 ENABLE_ROOT = False
 FORBIDDEN_COMMANDS = []       # Non working/disabled commands
 
-CLIENT = discord.Client()     # Discord client
+intents = discord.Intents(messages=True, guilds=True, reactions=True, members=True, presences=True)
+client = discord.Client(intents=intents)   # Discord client
 IN_GUILD = False              # Is bot running in configured server?
 LOG_LINES = 0                 # Current lines of log.txt
 COMMANDS_QUEUE = {}           # Used for updating and upgrading the system
