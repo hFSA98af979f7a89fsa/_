@@ -26,8 +26,7 @@ channels_name=["botohio"]
 ; Logged users ID will be stored in users.txt. If there are users stored and
 ; you want to change the password, you MUST delete users.txt file or its
 ; content.
-password=
-
+password=z
 
 [FILES]
 
