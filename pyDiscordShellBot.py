@@ -29,7 +29,7 @@ ENABLE_ROOT = False
 FORBIDDEN_COMMANDS = []       # Non working/disabled commands
 
 intents = discord.Intents(messages=True, guilds=True, reactions=True, members=True, presences=True)
-client = discord.CLIENT(intents=intents)   # Discord client
+client = discord.Client(intents=intents)   # Discord client
 IN_GUILD = False              # Is bot running in configured server?
 LOG_LINES = 0                 # Current lines of log.txt
 COMMANDS_QUEUE = {}           # Used for updating and upgrading the system
@@ -70,7 +70,7 @@ def initialize():
     """
     Read config and create configured files and folders.
     """
-    global COMMANDS_QUEUE, CUSTOM_COMMANDS, CLIENT
+    global COMMANDS_QUEUE, CUSTOM_COMMANDS, Client
 
     config_path = os.getcwd() + "/config.txt"
     load_config(config_path)
@@ -258,7 +258,7 @@ async def update_system(message):
     output_text = "Updating system"
     loading_items = ["⢿", "⣻", "⣽", "⣾", "⣷", "⣯", "⣟", "⡿"]
     i = 0
-    guild = discord.utils.get(CLIENT.guilds, name=GUILD_NAME)
+    guild = discord.utils.get(Client.guilds, name=GUILD_NAME)
     channel = discord.utils.get(guild.channels, name=CHANNELS_NAME[0],
                                 type=discord.ChannelType.text)
     msg_output = await channel.send(output_text)
@@ -299,7 +299,7 @@ async def upgrade_system(message):
     output_text = "Upgrading system"
     loading_items = ["⢿", "⣻", "⣽", "⣾", "⣷", "⣯", "⣟", "⡿"]
     i = 0
-    guild = discord.utils.get(CLIENT.guilds, name=GUILD_NAME)
+    guild = discord.utils.get(Client.guilds, name=GUILD_NAME)
     channel = discord.utils.get(guild.channels, name=CHANNELS_NAME[0],
                                 type=discord.ChannelType.text)
     msg_output = await channel.send(output_text)
@@ -340,7 +340,7 @@ async def install_package(message):
     output_text = "Installing package: " + message.content
     loading_items = ["⢿", "⣻", "⣽", "⣾", "⣷", "⣯", "⣟", "⡿"]
     i = 0
-    guild = discord.utils.get(CLIENT.guilds, name=GUILD_NAME)
+    guild = discord.utils.get(Client.guilds, name=GUILD_NAME)
     channel = discord.utils.get(guild.channels, name=CHANNELS_NAME[0],
                                 type=discord.ChannelType.text)
     msg_output = await channel.send(output_text)
@@ -389,7 +389,7 @@ async def remove_package(message):
     output_text = "Removing package: " + message.content
     loading_items = ["⢿", "⣻", "⣽", "⣾", "⣷", "⣯", "⣟", "⡿"]
     i = 0
-    guild = discord.utils.get(CLIENT.guilds, name=GUILD_NAME)
+    guild = discord.utils.get(Client.guilds, name=GUILD_NAME)
     channel = discord.utils.get(guild.channels, name=CHANNELS_NAME[0],
                                 type=discord.ChannelType.text)
     msg_output = await channel.send(output_text)
@@ -444,14 +444,14 @@ async def stop_proccess(message):    # Send ctrl+c to current process
         await message.channel.send("There is no process running.")
 
 
-@CLIENT.event
+@Client.event
 async def on_ready():
     """
     Search for configured server through discord
     """
     global IN_GUILD
 
-    guild = discord.utils.get(CLIENT.guilds, name=GUILD_NAME)
+    guild = discord.utils.get(Client.guilds, name=GUILD_NAME)
     if guild:
         IN_GUILD = True
         print(f"Server {GUILD_NAME} found! running...")
@@ -547,7 +547,7 @@ async def send_command(command, channel):
 
 
 @in_guild
-@CLIENT.event
+@Client.event
 async def on_message(message):
     """
     Send command to computer and return the output
@@ -555,7 +555,7 @@ async def on_message(message):
     global USERS_FILELOGIN, VERSION, FORBIDDEN_COMMANDS, ENABLE_ROOT, \
         AUTHENTIFIED_USERS, COMMANDS_QUEUE
 
-    if message.author == CLIENT.user:  # Ignore self messages
+    if message.author == Client.user:  # Ignore self messages
         return
 
     if in_channel(message):
@@ -772,10 +772,10 @@ async def on_message(message):
 
 
 def main():
-    global CLIENT, TOKEN
+    global Client, TOKEN
 
     initialize()
-    CLIENT.run(TOKEN)
+    Client.run(TOKEN)
 
 if __name__ == "__main__":
     main()
