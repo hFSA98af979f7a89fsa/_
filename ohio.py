@@ -42,7 +42,7 @@ async def ssh(ctx, *, command):
         await ctx.send(f'```{output}```')
 
 @bot.command()
-async def input(ctx):
+async def rsz(ctx):
     await ctx.send("Please enter your input:")
     try:
         message = await bot.wait_for('message', timeout=30.0, check=lambda message: message.author == ctx.author and message.channel == ctx.channel)
