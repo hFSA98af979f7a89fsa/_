@@ -58,5 +58,5 @@ async def on_ready():
     ssh_keepalive.start()
 
 if __name__ == "__main__":
-    token = await input("Enter your bot token: ")
+    token = input("Enter your bot token: ")
     bot.run(token)
