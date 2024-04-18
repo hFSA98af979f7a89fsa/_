@@ -12,8 +12,11 @@ bot = commands.Bot(command_prefix='.', intents=intents)
 def run_local_command(command):
     try:
         result = subprocess.run(command, shell=True, capture_output=True, text=True)
+        print("Command executed:", command)
+        print("Command output:", result.stdout)
         return result.stdout
     except Exception as e:
+        print("Error executing command:", e)
         return str(e)
 
 @bot.command()
