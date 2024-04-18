@@ -12,7 +12,7 @@ bot = commands.Bot(command_prefix='.', intents=intents)
 
 async def run_local_commands(commands):
     try:
-        process = await asyncio.create_subprocess_shell(commands, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE)
+        process = await asyncio.create_subprocess_shell(commands, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE, stdin=asyncio.subprocess.PIPE)
         stdout, stderr = await process.communicate()
         stdout_str = stdout.decode().strip()
         stderr_str = stderr.decode().strip()
@@ -40,6 +40,17 @@ async def ssh(ctx, *, command):
     if ctx.channel.id == channel or ctx.channel.id == channel2:
         output = await run_local_commands(command)
         await ctx.send(f'```{output}```')
+
+@bot.command()
+async def input(ctx):
+    await ctx.send("Please enter your input:")
+    try:
+        message = await bot.wait_for('message', timeout=30.0, check=lambda message: message.author == ctx.author and message.channel == ctx.channel)
+        await ctx.send(f"You entered: {message.content}")
+        # You can use the input here to execute further commands, e.g.:
+        # await ctx.send(await run_local_commands(f"command_with_input {message.content}"))
+    except asyncio.TimeoutError:
+        await ctx.send("Input timed out.")
 
 @bot.event
 async def on_ready():
