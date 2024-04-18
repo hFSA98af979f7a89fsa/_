@@ -9,14 +9,14 @@ intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix='.', intents=intents)
 
-def run_local_command(command):
+def run_local_commands(commands):
     try:
-        result = subprocess.run(command, shell=True, capture_output=True, text=True)
-        print("Command executed:", command)
-        print("Command output:", result.stdout)
+        result = subprocess.run(commands, shell=True, capture_output=True, text=True)
+        print("Commands executed:", commands)
+        print("Commands output:", result.stdout)
         return result.stdout
     except Exception as e:
-        print("Error executing command:", e)
+        print("Error executing commands:", e)
         return str(e)
 
 @bot.command()
@@ -24,7 +24,7 @@ async def ssh(ctx, *, command):
     if ctx.channel.id != channel and ctx.channel.id != channel2:
         return
     if ctx.channel.id == channel or ctx.channel.id == channel2:
-        output = run_local_command(command)
+        output = run_local_commands(command)
         await ctx.send(f'```{output}```')
 
 @bot.event
